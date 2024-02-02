@@ -217,16 +217,26 @@ Every function accepts and returns an anonymous object `{a: Type, b:Type ...}`, 
 func something(a: Type, b: Type) {
     return {a, b}
 }
+```
 
+```kotlin
 // Set an instance of that anonymous object to a value:
 val value = something(a, b);
-// Or, set two separate values to the values the anonymous object has:
+```
+
+Or, set two separate values to the values the output object has.
+
+```kotlin
 { val a, val b } = something(a, b);
 // You can also can input with the same anonymous object type instead of two separate values:
 something(value); // Works!
 ```
 
+This is called object deconstruction, where you deconstruct an object to its contained values. Object deconstruction is written with curly braces (`{}`), with all of the values you want inside.
+
 Also unlike in kotlin function return types can be assumed and don't have to be explicitly stated.
+
+Anonymous Objects and Object deconstruction are further discussed in the next part (Classes and objects).
 
 ## Classes & Objects
 

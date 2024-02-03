@@ -69,7 +69,7 @@ In this first technique, we place a dollar sign (`$`) before the string to imply
 ```
 
 ```kotlin
-$"Hello!$user"
+"Hello!$user"
 ```
 
 ## Data Types & Collections
@@ -230,6 +230,10 @@ func main() {
     print(sum(1, 2));
 }
 ```
+
+### Recursion
+
+### Advanced Functions
 
 Every function accepts and returns an anonymous object `{a: Type, b:Type ...}`, meaning that you can have multiple inputs and outputs. This won't cause any confusion, though, because the object you receive from the outputs will have to either fit those standards or the program won't compile. same thing if you have two different return statements in a function where the types don't match up. this eliminates the need for "out" like in C#.
 

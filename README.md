@@ -264,6 +264,16 @@ Anonymous Objects and Object deconstruction are further discussed in the next pa
 
 ## Classes & Objects
 
+### Objects
+
+### Classes
+
+### Data Classes
+
+### Structs
+
+### Abstract & Interfaces
+
 ## Null Safety
 
 ## Async

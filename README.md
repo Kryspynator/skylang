@@ -2,15 +2,17 @@
 
 ## Introduction
 
-Sky combines the safety and solidness of languages like C# and Kotlin with the flexibility and simplicity of Python and JavaScript
+Sky combines the safety and solidness of languages like C# and Kotlin with the flexibility and simplicity of Python and JavaScript.
 
-Sky is built for for IDEs and readability. Unlike many other programming languages, it doesn't try to reduce in what is typed, or give the language a more english like syntax, but it strives for clear visual separation between parts of code. The goal is for any programmer slightly familiar with the language to understand the flow of any program at a glance.
+Sky is built for for IDEs and readability. Sky believes that we have moved past writing code in dumb editors, and have moved into a new era of writing code, where adding curly braces does not effect writing speed.
 
-Sky is a multi-paradigm programming languages, incorporating functional elements along with object oriented elements.
+Unlike many other programming languages, even beloved high level languages such as Phython, sky doesn't try to reduce in what is typed, or give the language a more english like syntax, but it strives for clear visual separation between parts of code. The goal is for any programmer slightly familiar with the language to understand the flow of any program at a glance, no matter how complex the code.
 
-Every variable, parameter, result, element is an object. Every object has a type. Types inherit from each other in complex relationships, and every type inherits from "Object".
+Sky is a multi-paradigm programming language, incorporating functional elements along with object oriented elements.
 
-Every action done in the code in one way or another is a function or uses a function. All if statements and loops are actually function in disguise, and you can even replace any normal input () with {} that represent a lambda function that returns the same types.
+Every variable, parameter, result, element is an object. Every object has a type. Types inherit from each other in complex relationships, and every type inherits from "Object". See more about this at the section on [classes and objects](#classes--objects).
+
+Every action done in the code in one way or another is a function or uses a function. All if statements and loops are actually function in disguise, and you can even replace any normal input () with {} that represent a lambda function that returns the same types. See more about this at the section on [functions](#functions).
 
 ## Hello World
 

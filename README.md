@@ -61,18 +61,24 @@ Here we create a class, that contains a public static function called `main()`. 
 We have three ways to interpolate strings in sky.
 
 ```kotlin
-$"Hello!{user}"
+$"Hello! {user}"
 ```
 
 In this first technique, we place a dollar sign (`$`) before the string to imply it is a string we want to interpolate. Any text within curly braces (`{}`) will be interpreted as code. This technique of string interpolation is helpful when you have a large amount of code or variables you want to inject into the string and don't want to waste space with lots of dollar signs.
 
 ```kotlin
-"Hello!${user}"
+"Hello! ${user}"
 ```
 
+In this second, we place the dollar sign before the code we want to inject. This allows us to include curly braces in the string without having to escape them.
+
 ```kotlin
-"Hello!$user"
+"Hello! $user"
 ```
+
+In this third variant, we place the dollar sign before the name of the variable we want to inject. This allows our string to stay incredibly readable, but doesn't allow us to inject code, only variables.
+
+### Escape Characters
 
 ## Data Types & Collections
 

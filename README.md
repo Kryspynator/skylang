@@ -17,10 +17,10 @@ Every action done in the code in one way or another is a function or uses a func
 Here is a simple program that prints "Hello, world!":
 
 ```kotlin
-println("Hello, world!")
+print("Hello, world!")
 ```
 
-`println()` and `print()` functions print their arguments to standard output
+`print()` and `print()` functions print their arguments to standard output.
 
 Simple, ins't it?
 
@@ -28,31 +28,49 @@ Heres another approach:
 
 ```kotlin
 func main() {
-    println("Hello, world!")
+    print("Hello, world!")
 }
 ```
 
-In this approach we create a function using the keyword `func`.
+In this approach we create a function using the keyword `func`. See more about this at the section on [functions](#functions). The `main()` function is where your program starts from. The body of a function is written within curly braces `{}`. We write code within the body of the function.
 
-The `main()` function is where your program starts from.
-
-The body of a function is written within curly braces `{}`.
-
-We write code within the body of the function.
-
-Heres another approach:
+Here's another approach:
 
 ```kotlin
 class Program {
-    static func main(args: Array<String>) {
-        println("Hello, world!")
+    public static func main(args: Array<String>) {
+        print("Hello, world!")
     }
 }
 ```
 
+Here we create a class, that contains a public static function called `main()`. See more about this at the section on [classes and objects](#classes--objects).
+
 ## Variables & Basic Types
 
 ## Strings & Interpolation
+
+### Strings
+
+### Char Arrays
+
+### Interpolation
+
+We have three ways to interpolate strings in sky.
+
+```kotlin
+$"Hello!{user}"
+```
+
+In this first technique, we place a dollar sign (`$`) before the string to imply it is a string we want to interpolate. Any text within curly braces (`{}`) will be interpreted as code. This technique of string interpolation is helpful when you have a large amount of code or variables you want to inject into the string and don't want to waste space with lots of dollar signs.
+
+```kotlin
+"Hello!${user}"
+```
+
+```kotlin
+$"Hello!$user"
+```
 
 ## Data Types & Collections
 
@@ -150,7 +168,7 @@ ranges
 
 ```kotlin
 foreach (number in Range(1, 5)) {
-    println(number * number);
+    print(number * number);
 }
 ```
 
@@ -186,14 +204,16 @@ while {
 You declare functions in sky using the `func` keyword.
 
 ```kotlin
-func hello() {
-    println("Hello, world!");
+func printWithExclamation(text: String) {
+    print("${text}!");
 }
 
 func main() {
-    hello();
+    printWithExclamation("Hello, world");
 }
 ```
+
+In this example we use string interpolation.See more about this at the section on functions [strings and interpolation](#strings--interpolation).
 
 Use the `return` keyword to exit or return something from a function.
 
@@ -207,7 +227,7 @@ func divide(x: Int, y:Int) {
 }
 
 func main() {
-    println(sum(1, 2));
+    print(sum(1, 2));
 }
 ```
 
@@ -243,6 +263,8 @@ Anonymous Objects and Object deconstruction are further discussed in the next pa
 ## Null Safety
 
 ## Async
+
+In many programming circles, it is considered best practice to go 'async all the way', meaning if you write any async code, you should write the rest of your code in a way that will accommodate for that asynchronous code when needed.
 
 ## Technical Info
 

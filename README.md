@@ -6,7 +6,7 @@ Sky combines the safety and solidness of languages like C# and Kotlin with the f
 
 Sky is built for for IDEs and readability. Sky believes that we have moved past writing code in dumb editors, and have moved into a new era of writing code, where adding curly braces does not effect writing speed.
 
-Unlike many other programming languages, even beloved high level languages such as Phython, sky doesn't try to reduce in what is typed, or give the language a more english like syntax, but it strives for clear visual separation between parts of code. The goal is for any programmer slightly familiar with the language to understand the flow of any program at a glance, no matter how complex the code.
+Unlike many other programming languages, even beloved high level languages such as Python, sky doesn't try to reduce in what is typed, or give the language a more english like syntax, but it strives for clear visual separation between parts of code. The goal is for any programmer slightly familiar with the language to understand the flow of any program at a glance, no matter how complex the code.
 
 Sky is a multi-paradigm programming language, incorporating functional elements along with object oriented elements.
 

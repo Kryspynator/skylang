@@ -10,9 +10,9 @@ Unlike many other programming languages, even beloved high level languages such 
 
 Sky is a multi-paradigm programming language, incorporating functional elements along with object oriented elements.
 
-Every variable, parameter, result, element is an object. Every object has a type. Types inherit from each other in complex relationships, and every type inherits from "Object". See more about this at the section on [classes and objects](#classes--objects).
+Every variable, parameter, result, element is an object. Every object has a type. Types inherit from each other in complex relationships, and every type inherits from `Object`. See more about this at the section on [classes and objects](#classes--objects).
 
-Every action done in the code in one way or another is a function or uses a function. All if statements and loops are actually function in disguise, and you can even replace any normal input () with {} that represent a lambda function that returns the same types. See more about this at the section on [functions](#functions).
+Every action done in the code in one way or another is a function or uses a function. All if statements and loops are actually function in disguise, and you can even replace any normal input (`()`) with curly braces (`{}`) that represent a lambda function that returns the same types, or even just place replace it with a function. See more about this at the section on [functions](#functions).
 
 ## Hello World
 

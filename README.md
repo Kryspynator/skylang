@@ -50,6 +50,19 @@ Here we create a class, that contains a public static function called `main()`. 
 
 ## Variables & Basic Types
 
+Here is how you create a basic variable in sky.
+
+```kotlin
+var num = 3;
+```
+
+In this example, you create a variable called `num`. You define it to hold the value of `3`, which is an integer number. In sky, every variable has a type that cannot be changed from it's creation. Here, we imply that the number is an `Int32` or simply `Integer`. In sky, you can also explicitly declare the variable type.
+
+
+```kotlin
+var num: Integer = 3;
+``
+
 ## Strings & Interpolation
 
 ### Strings

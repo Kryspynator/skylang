@@ -61,7 +61,7 @@ In this example, you create a variable called `num`. You define it to hold the v
 
 ```kotlin
 var num: Integer = 3;
-``'
+```
 
 ## Strings & Interpolation
 

@@ -50,6 +50,42 @@ Here we create a class, that contains a public static function called `main()`. 
 
 ## Variables & Basic Types
 
+### Variables
+
+Here is how you create a basic variable in sky.
+
+```kotlin
+var num = 3;
+```
+
+In this example, you create a variable called `num`. You define it to hold the value of `3`, which is an integer number. In sky, every variable has a type that cannot be changed from it's creation. Here, we imply that the number is an `Int32` or simply `Integer`. In sky, you can also explicitly declare the variable type. You can learn more about classes and objects
+
+```kotlin
+var num: Integer = 3;
+```
+
+### Values / Constants
+
+Just like varaibles, values (or you can think of them as 'constant variables') can be set to different values. Unlike variables, they cannot be changed. In sky, this is made easy as constant values are put on the same level as other variables and are equally easy to type (unlike langues like C#). The reason behind this, is to encourage the use of  the concept of immutability, where values of variables are not changed, just modified into a different variable. This mindset tends to reduce errors where two parts of the code accidentially modify the same value.
+
+```kotlin
+val implicitNum = 3; // Works! ✔️
+
+val explicitNum: Integer = 3; // Works! ✔️
+
+val unsetNum: Integer; unsetNum = 3; // Doesn't work! ✖️
+```
+
+### Basic Types
+
+Here are some basic types included in the standard library. Strings will be discussed more in [string & interpolation](#strings--interpolation). To understand more about these types, learn about more types, and how to create more types, go to [classes & objects](#classes--objects)
+
+#### Numbers
+
+Different ways to store numbers in sky.
+
+`Integer` / `Int32` An integer (whole number) value that takes up 32 bits (4 bytes)
+
 ## Strings & Interpolation
 
 ### Strings

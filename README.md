@@ -99,7 +99,7 @@ if (something) {
 Simple one line if statements:
 
 ```kotlin
-if (isComplete) then (runAnimation = false) else (count++);
+if isComplete then (runAnimation = false) else (count++);
 ```
 
 ```kotlin
@@ -274,13 +274,27 @@ Anonymous Objects and Object deconstruction are further discussed in the next pa
 
 ### Objects
 
-### Classes
+### Object Comparison
 
-### Data Classes
+### Classes
 
 ### Structs
 
+Structs are the immutable version of classes. Instead of being passed by reference (Where a pointer to the object gets moved between variables, meaning they both reference the same object) the object is passed by value, meaning that the object gets coppied every time you do an operation on it.
+
+```kotlin
+struct Something {
+    // Some code...
+}
+```
+
+### Data Classes & Structs
+
+Data classes and structs are special classes and structs that are made to pass around information, and nothing else. They do not support the addition of any functions or private feilds, but auto generate `toString`
+
 ### Abstract & Interfaces
+
+interfaces are
 
 ## Null Safety
 

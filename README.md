@@ -64,6 +64,14 @@ In this example, you create a variable called `num`. You define it to hold the v
 var num: Integer = 3;
 ```
 
+It is also possible to declare a variable, and only set it to a value later.
+
+```kotlin
+var num: Integer;
+
+num = 3;
+```
+
 ### Values / Constants
 
 Just like variables, values (or you can think of them as 'constant variables') can be set to different values. Unlike variables, they cannot be changed. In sky, this is made easy as constant values are put on the same level as other variables and are equally easy to type (unlike langues like C#). The reason behind this, is to encourage the use of the concept of immutability, where values of variables are not changed, just modified into a different variable. This mindset tends to reduce errors where two parts of the code accidentally modify the same value.
@@ -80,21 +88,24 @@ val unsetNum: Integer; unsetNum = 3; // Doesn't work! ✖️
 
 Here are some basic types included in the standard library. Strings will be discussed more in [string & interpolation](#strings--interpolation). To understand more about these types, learn about more types, and how to create more types, go to [classes & objects](#classes--objects)
 
-#### Numbers
+| Numbers                     |                                                                                                             |
+| --------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `Int` / `Integer` / `Int32` | An integer (whole number) value that takes up 32 bits (4 bytes), and is the default type of a number        |
+| `Long` / `Int64`            | An integer (whole number) value that takes up 64 bits (8 bytes)                                             |
+| `Short` / `Int16`           | An integer (whole number) value that takes up 16 bits (2 bytes)                                             |
+| `Byte` / `Int8`             | An integer (whole number) value that takes up 8 bits (1 byte)                                               |
+| `Float` / `Float32`         | An real (decimal number) value that takes up 32 bits (4 bytes)                                              |
+| `Double` / `Float64`        | An real (decimal number) value that takes up 32 bits (8 bytes) and is the default value of a decimal number |
 
-Different ways to store numbers in sky.
+#### Writing Numbers
 
-##### Whole Numbers
+`var x = 123;` - a number in base 10 (will default to the type of 'Int32')
 
-`Int` / `Integer` / `Int32` An integer (whole number) value that takes up 32 bits (4 bytes)
+`var x = 0b1111011;` - a number in binary (will default to the type of 'Int32')
 
-`Long` / `Int64` An integer (whole number) value that takes up 32 bits (4 bytes)
+`var x = 0x7B;` - a number in binary (will default to the type of 'Int32')
 
-`Short` / `Int16` An integer (whole number) value that takes up 32 bits (4 bytes)
-
-`Integer` / `Int32` An integer (whole number) value that takes up 32 bits (4 bytes)
-
-`Integer` / `Int32` An integer (whole number) value that takes up 32 bits (4 bytes)
+`var x = 0.1;` - a decimal number in base 10 (will default to the type of 'Float64')
 
 ## Strings & Interpolation
 
@@ -336,11 +347,13 @@ struct Something {
 
 ### Data Classes & Structs
 
-Data classes and structs are special classes and structs that are made to pass around information, and nothing else. They do not support the addition of any functions or private feilds, but auto generate `toString`
+Data classes and structs are special classes and structs that are made to pass around information, and nothing else. They do not support the addition of private members, as those accessed from outside of that class.
 
 ### Abstract & Interfaces
 
-interfaces are
+There are no abstract classes in sky, only interfaces. Interfaces are significantly more similar to typescript interfaces than ones in C#.
+
+Interfaces can be seen as templates for classes, in the same way as classes are templates for objects, but interfaces can also be used as an implicit type for an object, where a class is more explicit.
 
 ## Null Safety
 

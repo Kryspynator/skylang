@@ -88,14 +88,14 @@ val unsetNum: Integer; unsetNum = 3; // Doesn't work! ✖️
 
 Here are some basic types included in the standard library. Strings will be discussed more in [string & interpolation](#strings--interpolation). To understand more about these types, learn about more types, and how to create more types, go to [classes & objects](#classes--objects)
 
-| Numbers                     |                                                                                                             |
-| --------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `Int` / `Integer` / `Int32` | An integer (whole number) value that takes up 32 bits (4 bytes), and is the default type of a number        |
-| `Long` / `Int64`            | An integer (whole number) value that takes up 64 bits (8 bytes)                                             |
-| `Short` / `Int16`           | An integer (whole number) value that takes up 16 bits (2 bytes)                                             |
-| `Byte` / `Int8`             | An integer (whole number) value that takes up 8 bits (1 byte)                                               |
-| `Float` / `Float32`         | An real (decimal number) value that takes up 32 bits (4 bytes)                                              |
-| `Double` / `Float64`        | An real (decimal number) value that takes up 32 bits (8 bytes) and is the default value of a decimal number |
+| Numbers                       |                                                                                                             |
+| ----------------------------- | ----------------------------------------------------------------------------------------------------------- |
+| `Int` or `Integer` or `Int32` | An integer (whole number) value that takes up 32 bits (4 bytes), and is the default type of a number        |
+| `Long` or `Int64`             | An integer (whole number) value that takes up 64 bits (8 bytes)                                             |
+| `Short` or `Int16`            | An integer (whole number) value that takes up 16 bits (2 bytes)                                             |
+| `Byte` or `Int8`              | An integer (whole number) value that takes up 8 bits (1 byte)                                               |
+| `Float` or `Float32`          | An real (decimal number) value that takes up 32 bits (4 bytes)                                              |
+| `Double` or `Float64`         | An real (decimal number) value that takes up 32 bits (8 bytes) and is the default value of a decimal number |
 
 #### Writing Numbers
 
@@ -199,7 +199,7 @@ when (numberText) {
         return (something);
     }
     // Default statement
-    else -> (root.return (something))
+    else => (root.return (something))
 }
 ```
 

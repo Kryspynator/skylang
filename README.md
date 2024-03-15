@@ -66,7 +66,7 @@ var num: Integer = 3;
 
 ### Values / Constants
 
-Just like varaibles, values (or you can think of them as 'constant variables') can be set to different values. Unlike variables, they cannot be changed. In sky, this is made easy as constant values are put on the same level as other variables and are equally easy to type (unlike langues like C#). The reason behind this, is to encourage the use of  the concept of immutability, where values of variables are not changed, just modified into a different variable. This mindset tends to reduce errors where two parts of the code accidentially modify the same value.
+Just like variables, values (or you can think of them as 'constant variables') can be set to different values. Unlike variables, they cannot be changed. In sky, this is made easy as constant values are put on the same level as other variables and are equally easy to type (unlike langues like C#). The reason behind this, is to encourage the use of the concept of immutability, where values of variables are not changed, just modified into a different variable. This mindset tends to reduce errors where two parts of the code accidentally modify the same value.
 
 ```kotlin
 val implicitNum = 3; // Works! ✔️
@@ -83,6 +83,16 @@ Here are some basic types included in the standard library. Strings will be disc
 #### Numbers
 
 Different ways to store numbers in sky.
+
+##### Whole Numbers
+
+`Int` / `Integer` / `Int32` An integer (whole number) value that takes up 32 bits (4 bytes)
+
+`Long` / `Int64` An integer (whole number) value that takes up 32 bits (4 bytes)
+
+`Short` / `Int16` An integer (whole number) value that takes up 32 bits (4 bytes)
+
+`Integer` / `Int32` An integer (whole number) value that takes up 32 bits (4 bytes)
 
 `Integer` / `Int32` An integer (whole number) value that takes up 32 bits (4 bytes)
 
@@ -338,7 +348,11 @@ interfaces are
 
 In many programming circles, it is considered best practice to go 'async all the way', meaning if you write any async code, you should write the rest of your code in a way that will accommodate for that asynchronous code when needed.
 
-## Technical Info
+## Packages
+
+## Program Entry Point
+
+## Technical Information
 
 Sky code files use the .sky file ending.
 

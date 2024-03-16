@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Sky combines the safety and solidness of languages like C# and Kotlin with the flexibility and simplicity of Python and JavaScript.
+Sky combines the safety and solidity and safety of languages like kotlin with the simplicity and flexibility of languages like javascript. In a way, you can think of it at another attempt to create typescript.
 
 Sky is built for for IDEs and readability. Sky believes that we have moved past writing code in dumb editors, and have moved into a new era of writing code, where adding curly braces does not effect writing speed.
 
@@ -183,6 +183,8 @@ if {
 }
 ```
 
+In this example, we return a value from the encasing function instead of the the `then` case. This is called a [root return](#root-return)
+
 ### When statements
 
 Instead of switch case, we have when else:
@@ -205,7 +207,9 @@ when (numberText) {
 
 ### Loops
 
-foreach
+This is a `foreach` loop. It iterates over every single item in an [`Iterable`](#iterable) object. The code within the braces will called once for every object within the iterable object.
+
+In this example, we loop over a collection called `users`. We declare that the object that is currently being accessed in the loop as `user`.
 
 ```kotlin
 foreach (user in users) {
@@ -213,15 +217,15 @@ foreach (user in users) {
 }
 ```
 
-index and value in array and lists
+Here we loop over the same collection, but this time we loop over the objects with the index. We use [object destructuring](#object-destructuring) to extract two different objects, one representing the users, and one representing the index.
 
 ```kotlin
-foreach ({ user, index } in users) {
+foreach ({ user, index } in users.withIndex()) {
     // Do Something...
 }
 ```
 
-key and value in maps
+In maps, when we loop over the map, we get one `KeyValuePair` object. Usually, we'll use [object destructuring](#object-destructuring) here as well to get easy access to both the key and the value.
 
 ```kotlin
 foreach ({ key, value } in myMap) {
@@ -229,10 +233,10 @@ foreach ({ key, value } in myMap) {
 }
 ```
 
-ranges
+If you want to loop over a range of numbers, you can create a new [`Range` object]() and place your lower and upper bounds. If you don't put a lower bound, it will be 0 by default.
 
 ```kotlin
-foreach (number in Range(1, 5)) {
+foreach (number in new Range(1, 5)) {
     print(number * number);
 }
 ```
@@ -263,6 +267,8 @@ while {
     // Do something...
 }
 ```
+
+### Root Return
 
 ## Functions
 
@@ -300,6 +306,8 @@ func main() {
 
 ### Advanced Functions
 
+#### Returning Multiple Values
+
 Every function accepts and returns an anonymous object `{a: Type, b:Type ...}`, meaning that you can have multiple inputs and outputs. This won't cause any confusion, though, because the object you receive from the outputs will have to either fit those standards or the program won't compile. same thing if you have two different return statements in a function where the types don't match up. this eliminates the need for "out" like in C#.
 
 ```kotlin
@@ -321,19 +329,72 @@ Or, set two separate values to the values the output object has.
 something(value); // Works!
 ```
 
-This is called object deconstruction, where you deconstruct an object to its contained values. Object deconstruction is written with curly braces (`{}`), with all of the values you want inside.
+This is called [object destructuring](#object-destructuring), where you deconstruct an object to its contained values. Object deconstruction is written with curly braces (`{}`), with all of the values you want inside.
 
 Also unlike in kotlin function return types can be assumed and don't have to be explicitly stated.
 
 Anonymous Objects and Object deconstruction are further discussed in the next part (Classes and objects).
 
+#### Higher order functions
+
+Functions can also receive other functions as an input, and activate them.
+
 ## Classes & Objects
 
 ### Objects
 
+Objects are packages for information. Instead of storing data in multiple variables, you can package it into an object and store it in one. Objects are used to store data and actions that are related and should move and change together in the code.
+
+### Object Destructuring
+
 ### Object Comparison
 
+In sky, there are number of boolean operators that you can use on objects.
+
+| Operators           | Description                                                                                                             |
+| ------------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| `==` Equals         | Returns true if the objects are equal using the `equals` function                                                       |
+| `===` Strict Equals | Returns true if the objects' pointers are equal                                                                         |
+| `<=` Lesser Equals  | Returns true if the objects are lesser or equal using the `compare` function inherited from the `Comparable` interface  |
+| `<` Lesser than     | Returns true if the objects are lesser using the `compare` function inherited from the `Comparable` interface           |
+| `>=` Greater Equals | Returns true if the objects are greater or equal using the `compare` function inherited from the `Comparable` interface |
+| `>` Greater than    | Returns true if the objects are greater using the `compare` function inherited from the `Comparable` interface          |
+
+```kotlin
+if("Hello" == "Hello") // Returns true
+```
+
+```kotlin
+if("Hello" === "Hello") // Returns false, because the pointers point to different strings.
+```
+
 ### Classes
+
+Classes are templates for objects. You can create instances of classes, and the type of that object will be the name of the class. If the variable is the type of class, you can access the objects public properties.
+
+```kotlin
+var worker = new Employee("Bob", "Programmer");
+```
+
+Here we just create a new employee. Here is the template for an employee.
+
+```kotlin
+class Employee(val name: String, var job: String) {
+    func doJob(hours: Integer) {
+        print()
+    }
+}
+```
+
+In the example above, we created a new employee who's name is "Bob" and job is "Programmer".
+
+#### Extending classes
+
+```kotlin
+class Manager(name: String) extends Employee(name,"Manager") {
+
+}
+```
 
 ### Structs
 
@@ -355,6 +416,24 @@ There are no abstract classes in sky, only interfaces. Interfaces are significan
 
 Interfaces can be seen as templates for classes, in the same way as classes are templates for objects, but interfaces can also be used as an implicit type for an object, where a class is more explicit.
 
+```kotlin
+interface Animal {
+    readonly val genome: Gene[];
+    readonly var Name: String;
+    var isAlive: Boolean;
+}
+```
+
+```kotlin
+interface Mammal extends Animal {
+    func makeMilk(water: Water) => Milk;
+}
+```
+
+#### Iterable
+
+#### Collection
+
 ## Null Safety
 
 ## Async
@@ -363,11 +442,19 @@ In many programming circles, it is considered best practice to go 'async all the
 
 ## Packages
 
+In sky, packages are declared using the `package` keyword. At the top of the
+
 ## Program Entry Point
+
+## Style Guide
 
 ## Technical Information
 
 Sky code files use the .sky file ending.
+
+### Standard Packages
+
+The standard packages are pre-made packages that anyone can use and import to make their coding faster and more efficient. The standard library is imported by default and contains all of the basic objects.
 
 ## Example Project
 

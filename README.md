@@ -456,8 +456,24 @@ Sky code files use the .sky file ending.
 
 The standard packages are pre-made packages that anyone can use and import to make their coding faster and more efficient. The standard library is imported by default and contains all of the basic objects.
 
-## Example Project
+## Ideas
+
+Sugar syntax for adding limitations for auto generated getters and setters.
 
 ```kotlin
-// Example code goes here...
+var port: Integer(this > 0 & this < 3000);
+
+// Translates too...
+
+var port: Integer {
+    get() {
+        return port;
+    }
+    set(port: Integer) {
+        if(port > 0 & port < 3000) {
+            return true;
+        }
+        return false;
+    }
+}
 ```

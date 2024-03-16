@@ -398,7 +398,7 @@ class Manager(name: String) extends Employee(name,"Manager") {
 
 ### Structs
 
-Structs are the immutable version of classes. Instead of being passed by reference (Where a pointer to the object gets moved between variables, meaning they both reference the same object) the object is passed by value, meaning that the object gets coppied every time you do an operation on it.
+Structs are the immutable version of classes. Instead of being passed by reference (Where a pointer to the object gets moved between variables, meaning they both reference the same object) the object is passed by value, meaning that the object gets copied every time you do an operation on it.
 
 ```kotlin
 struct Something {
@@ -452,9 +452,33 @@ In sky, packages are declared using the `package` keyword. At the top of the
 
 Sky code files use the .sky file ending.
 
-### Standard Packages
+## Standard Packages
 
 The standard packages are pre-made packages that anyone can use and import to make their coding faster and more efficient. The standard library is imported by default and contains all of the basic objects.
+
+### Standard Collections & Iterables
+
+`Range` is an iterable that represents a range of numbers.
+
+Constructors:
+
+```kotlin
+constructor(endExclusive: Integer)
+```
+
+endExclusive is an integer number that represents the end of the range, exclusive. The range starts at 0 and ends at the end.
+
+```kotlin
+constructor(startInclusive: Integer, endExclusive: Integer)
+```
+
+endExclusive is an integer number that represents the end of the range, exclusive. The range starts at 0 and ends at the end.
+
+```kotlin
+constructor(endExclusive: Integer)
+```
+
+endExclusive is an integer number that represents the end of the range, exclusive. The range starts at 0 and ends at the end.
 
 ## Ideas
 

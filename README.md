@@ -99,21 +99,25 @@ Here are some basic types included in the standard library. Strings will be disc
 
 #### Writing Numbers
 
-`var x = 123;` - a number in base 10 (will default to the type of 'Int32')
+```kotlin
+var x = 123; // a number in base 10 (will default to the type of 'Int32')
 
-`var x = 0b1111011;` - a number in binary (will default to the type of 'Int32')
+var x = 0b1111011; // a number in binary (will default to the type of 'Int32')
 
-`var x = 0x7B;` - a number in binary (will default to the type of 'Int32')
+var x = 0x7B; // a number in binary (will default to the type of 'Int32')
 
-`var x = 0.1;` - a decimal number in base 10 (will default to the type of 'Float64')
+var x = 0.1; // a decimal number in base 10 (will default to the type of 'Float64')
+```
 
-Because `Byte` can also represent characters as `Char`, you can also do `var x: Byte = 'B'` and the ascii number of the character automatically will be stored as the number. You will also be able to retrieve it for
+Because `Byte` can also represent characters as `Char`, you can also do:
 
-### Data Structures
+```kotlin
+var x: Byte = 'S';
+var y: Char = 'K';
+var z = 'Y';
+```
 
-#### Array
-
-#### Map
+The ascii number of the character automatically will be stored as the number. You will also be able to retrieve it as a character or a number at any time, as the character is just a different representation of the stored number.
 
 ## Strings & Interpolation
 
@@ -146,6 +150,22 @@ In this third variant, we place the dollar sign before the name of the variable 
 ### Escape Characters
 
 ## Data Types & Collections
+
+### Basic Data Types
+
+#### Array
+
+#### Immutable Array
+
+#### Map
+
+#### Immutable Map
+
+### Collections
+
+#### List
+
+#### Immutable List
 
 ## Control flow
 
@@ -430,6 +450,66 @@ struct Something {
 }
 ```
 
+### Member Modifiers
+
+#### `static`
+
+The static modifier modifies the member to be "static" or unchanged by different instances of the class. In a sense, it creates global variables and functions that are tied to a certain class. This is a very powerful, but also dangerous property. It can take up unneeded amounts of memory and create unmanageable code. In general, in programming we want to keep "state", or the idea that we save information and that information influences the codes actions, to a minimum.
+
+#### Access Modifiers
+
+Behind the scenes, "get" and "set" functions are created and called for every single one of the fields.
+
+```kotlin
+// For methods...
+
+public var fpo;         // Public is the default access modifier. Allows anyone to access the member.
+internal var bar;       // Internal only allows code from the same package to access the member
+protected var alice;    // Protected only allows code from the class and classes that inherit to access the member
+private var bob;        // Private only allows code from the class to access the member
+
+// For fields...
+
+getOnly var charlie; // Sets the "get" to public, and the "set" to protected
+setOnly var dotan; // Sets the "set" to public, and the "get" to protected
+
+// You can set all of this manually for fields get/set methods as well
+var temp: Integer {
+    internal get() {
+        return temp;
+    }
+    private set(temp: Integer) {
+        this.temp = temp;
+    }
+}
+```
+
+#### `val` & `var`
+
+### Sugar Syntaxes
+
+#### Fields
+
+Behind the scenes, "get" and "set" functions are created and called for every single one of the fields, depending on their access modifier. This allows us to limit access for them even further.
+
+```kotlin
+var port: Integer(this > 0 & this < 3000);
+
+// Translates too...
+
+var port: Integer {
+    get() {
+        return port;
+    }
+    set(port: Integer) {
+        if(port > 0 & port < 3000) {
+            return true;
+        }
+        return false;
+    }
+}
+```
+
 ### Data Classes & Structs
 
 Data classes and structs are special classes and structs that are made to pass around information, and nothing else. They do not support the addition of private members, as those accessed from outside of that class.
@@ -518,25 +598,3 @@ You can think of the all of the basic types as types that exist in the standard 
 > ```
 >
 > `startInclusive` is an integer number that represents the start of the range. `endExclusive` is an integer number that represents the end of the range. `step` is an integer number that represents how much to jump each time until reaching the end number. The range starts at `startInclusive` and ends before `endExclusive`.
-
-## Ideas
-
-Sugar syntax for adding limitations for auto generated getters and setters.
-
-```kotlin
-var port: Integer(this > 0 & this < 3000);
-
-// Translates too...
-
-var port: Integer {
-    get() {
-        return port;
-    }
-    set(port: Integer) {
-        if(port > 0 & port < 3000) {
-            return true;
-        }
-        return false;
-    }
-}
-```

@@ -88,14 +88,14 @@ val unsetNum: Integer; unsetNum = 3; // Doesn't work! ✖️
 
 Here are some basic types included in the standard library. Strings will be discussed more in [string & interpolation](#strings--interpolation). To understand more about these types, learn about more types, and how to create more types, go to [classes & objects](#classes--objects)
 
-| Numbers                       |                                                                                                             |
-| ----------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `Int` or `Integer` or `Int32` | An integer (whole number) value that takes up 32 bits (4 bytes), and is the default type of a number        |
-| `Long` or `Int64`             | An integer (whole number) value that takes up 64 bits (8 bytes)                                             |
-| `Short` or `Int16`            | An integer (whole number) value that takes up 16 bits (2 bytes)                                             |
-| `Byte` or `Int8`              | An integer (whole number) value that takes up 8 bits (1 byte)                                               |
-| `Float` or `Float32`          | An real (decimal number) value that takes up 32 bits (4 bytes)                                              |
-| `Double` or `Float64`         | An real (decimal number) value that takes up 32 bits (8 bytes) and is the default value of a decimal number |
+| Numbers                       |                                                                                                              |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------ |
+| `Int` or `Integer` or `Int32` | An integer (whole number) value that takes up 32 bits (4 bytes), and is the default type of a number.        |
+| `Long` or `Int64`             | An integer (whole number) value that takes up 64 bits (8 bytes)                                              |
+| `Short` or `Int16`            | An integer (whole number) value that takes up 16 bits (2 bytes)                                              |
+| `Byte` or `Int8` or `Char`    | An integer (whole number) value that takes up 8 bits (1 byte)                                                |
+| `Float` or `Float32`          | An real (decimal number) value that takes up 32 bits (4 bytes). Do not confuse with `UTF8Char`.              |
+| `Double` or `Float64`         | An real (decimal number) value that takes up 32 bits (8 bytes) and is the default value of a decimal number. |
 
 #### Writing Numbers
 
@@ -106,6 +106,14 @@ Here are some basic types included in the standard library. Strings will be disc
 `var x = 0x7B;` - a number in binary (will default to the type of 'Int32')
 
 `var x = 0.1;` - a decimal number in base 10 (will default to the type of 'Float64')
+
+Because `Byte` can also represent characters as `Char`, you can also do `var x: Byte = 'B'` and the ascii number of the character automatically will be stored as the number. You will also be able to retrieve it for
+
+### Data Structures
+
+#### Array
+
+#### Map
 
 ## Strings & Interpolation
 
@@ -207,7 +215,9 @@ when (numberText) {
 
 ### Loops
 
-This is a `foreach` loop. It iterates over every single item in an [`Iterable`](#iterable) object. The code within the braces will called once for every object within the iterable object.
+#### This is a `foreach` loop
+
+It iterates over every single item in an [`Iterable`](#iterable) object. The code within the braces will called once for every object within the iterable object.
 
 In this example, we loop over a collection called `users`. We declare that the object that is currently being accessed in the loop as `user`.
 
@@ -233,7 +243,7 @@ foreach ({ key, value } in myMap) {
 }
 ```
 
-If you want to loop over a range of numbers, you can create a new [`Range` object]() and place your lower and upper bounds. If you don't put a lower bound, it will be 0 by default.
+If you want to loop over a range of numbers, you can create a new [`Range` object](#range) and place your lower and upper bounds. If you don't put a lower bound, it will be 0 by default.
 
 ```kotlin
 foreach (number in new Range(1, 5)) {
@@ -241,23 +251,35 @@ foreach (number in new Range(1, 5)) {
 }
 ```
 
-while
-
 ```kotlin
-while (count < foo.length) {
-    // Do something
+foreach (number in new Range(users.size)) {
+    // Do something...
 }
 ```
 
-do while
+#### This is a `while` loop
+
+It continues to run the code within it's scope while the condition is met (the input at the top is `True`)
+
+```kotlin
+while (count < foo.length) {
+    // Do something...
+}
+```
+
+#### This is a `do while` loop
+
+It runs the code within it's scope, and them checks if the condition is still met (the input at the top is `True`)
 
 ```kotlin
 do {
-    // Do something
+    // Do something...
 } while (count < foo.length)
 ```
 
-while do
+#### This is a `while do` loop
+
+It runs the code within the while statement, and depending on what it returns, it runs the do statement. If the that runs within.
 
 ```kotlin
 while {
@@ -269,6 +291,8 @@ while {
 ```
 
 ### Root Return
+
+sometimes you exist inside a lambda function
 
 ## Functions
 
@@ -432,6 +456,8 @@ interface Mammal extends Animal {
 
 #### Iterable
 
+`Iterable` is an interface that exists by default.
+
 #### Collection
 
 ## Null Safety
@@ -446,6 +472,8 @@ In sky, packages are declared using the `package` keyword. At the top of the
 
 ## Program Entry Point
 
+There are two program entry points. Either a main function, or a script. In a script, you specify the file you want to run, and any code written in the top level scope will be run. In larger programs, you'll use a main function and the compiler will automatically find it and run it to start the program. If there are multiple main functions, you'll have to specify which one will be run.
+
 ## Style Guide
 
 ## Technical Information
@@ -454,31 +482,42 @@ Sky code files use the .sky file ending.
 
 ## Standard Packages
 
-The standard packages are pre-made packages that anyone can use and import to make their coding faster and more efficient. The standard library is imported by default and contains all of the basic objects.
+The standard packages are pre-made packages that anyone can use and import to make their coding faster and more efficient.
+
+You can think of the all of the basic types as types that exist in the standard library that is imported by default. These types do not have a real class or struct implementation anywhere.
 
 ### Standard Collections & Iterables
 
-`Range` is an iterable that represents a range of numbers.
-
-Constructors:
-
-```kotlin
-constructor(endExclusive: Integer)
-```
-
-endExclusive is an integer number that represents the end of the range, exclusive. The range starts at 0 and ends at the end.
-
-```kotlin
-constructor(startInclusive: Integer, endExclusive: Integer)
-```
-
-endExclusive is an integer number that represents the end of the range, exclusive. The range starts at 0 and ends at the end.
-
-```kotlin
-constructor(endExclusive: Integer)
-```
-
-endExclusive is an integer number that represents the end of the range, exclusive. The range starts at 0 and ends at the end.
+> #### `Range`
+>
+> an iterable that represents a range of numbers.
+>
+> Constructors:
+>
+> ```kotlin
+> constructor(endExclusive: Integer)
+> ```
+>
+> `endExclusive` is an integer number that represents the end of the range. The range starts at 0 and ends at the end. The range goes up by 1 every time
+>
+> ```kotlin
+> constructor(
+>    startInclusive: Integer,
+>    endExclusive: Integer
+> )
+> ```
+>
+> `startInclusive` is an integer number that represents the start of the range. `endExclusive` is an integer number that represents the end of the range. The range starts at 0 and ends at the end.
+>
+> ```kotlin
+> constructor(
+>    startInclusive: Integer,
+>    endExclusive: Integer,
+>    step: Integer
+> )
+> ```
+>
+> `startInclusive` is an integer number that represents the start of the range. `endExclusive` is an integer number that represents the end of the range. `step` is an integer number that represents how much to jump each time until reaching the end number. The range starts at `startInclusive` and ends before `endExclusive`.
 
 ## Ideas
 

@@ -88,24 +88,29 @@ val unsetNum: Integer; unsetNum = 3; // Doesn't work! ✖️
 
 Here are some basic types included in the standard library. Strings will be discussed more in [string & interpolation](#strings--interpolation). To understand more about these types, learn about more types, and how to create more types, go to [classes & objects](#classes--objects)
 
-| Numbers                       |                                                                                                             |
-| ----------------------------- | ----------------------------------------------------------------------------------------------------------- |
-| `Int` or `Integer` or `Int32` | An integer (whole number) value that takes up 32 bits (4 bytes), and is the default type of a number        |
-| `Long` or `Int64`             | An integer (whole number) value that takes up 64 bits (8 bytes)                                             |
-| `Short` or `Int16`            | An integer (whole number) value that takes up 16 bits (2 bytes)                                             |
-| `Byte` or `Int8`              | An integer (whole number) value that takes up 8 bits (1 byte)                                               |
-| `Float` or `Float32`          | An real (decimal number) value that takes up 32 bits (4 bytes)                                              |
-| `Double` or `Float64`         | An real (decimal number) value that takes up 32 bits (8 bytes) and is the default value of a decimal number |
+| Numbers              |                                                                                                                      |
+| -------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| **_Integer_**        |                                                                                                                      |
+| `Integer`            | An integer (whole number) value that dynamically switches between Int32 and Int64, and is the default type of number |
+| `Int32`              | An integer (whole number) value that takes up 32 bits (4 bytes)                                                      |
+| `Int64`              | An integer (whole number) value that takes up 64 bits (8 bytes)                                                      |
+| `Int16`              | An integer (whole number) value that takes up 16 bits (2 bytes)                                                      |
+| `Int8`               | An integer (whole number) value that takes up 8 bits (1 byte)                                                        |
+| **_Floating point_** | _A floating point decimal value_                                                                                     |
+| `Float`              | An value that dynamically switches between Float32 and Float64 and is the default value of a decimal number          |
+| `Float32`            | An real (decimal number) value that takes up 32 bits (4 bytes)                                                       |
+| `Float64`            | An real (decimal number) value that takes up 32 bits (8 bytes)                                                       |
 
 #### Writing Numbers
 
-`var x = 123;` - a number in base 10 (will default to the type of 'Int32')
+Here's how you can write numbers in sky
 
-`var x = 0b1111011;` - a number in binary (will default to the type of 'Int32')
-
-`var x = 0x7B;` - a number in binary (will default to the type of 'Int32')
-
-`var x = 0.1;` - a decimal number in base 10 (will default to the type of 'Float64')
+|                      |                                                                     |
+| -------------------- | ------------------------------------------------------------------- |
+| `var x = 123;`       | a number in base 10 (will default to the type of 'Int32')           |
+| `var x = 0b1111011;` | a number in binary (will default to the type of 'Int32')            |
+| `var x = 0x7B;`      | a number in binary (will default to the type of 'Int32')            |
+| `var x = 0.1;`       | a decimal number in base 10 (will default to the type of 'Float64') |
 
 ## Strings & Interpolation
 
@@ -184,26 +189,6 @@ if {
 ```
 
 In this example, we return a value from the encasing function instead of the the `then` case. This is called a [root return](#root-return)
-
-### When statements
-
-Instead of switch case, we have when else:
-
-```kotlin
-when (numberText) {
-    ("one") => (/* Do Something... */)
-    ("two") => {
-        // Do Something...
-        // Do Multiple Things...
-    }
-    (numberText.length > 3) => {
-        // Do Something...
-        return (something);
-    }
-    // Default statement
-    else => (root.return (something))
-}
-```
 
 ### Loops
 
@@ -334,6 +319,16 @@ This is called [object destructuring](#object-destructuring), where you deconstr
 Also unlike in kotlin function return types can be assumed and don't have to be explicitly stated.
 
 Anonymous Objects and Object deconstruction are further discussed in the next part (Classes and objects).
+
+#### Partial Functions
+
+```kotlin
+func something(x: Int, y: Int) {
+    ...
+}
+
+val partialSomething = something.partial({x: 3});
+```
 
 #### Higher order functions
 

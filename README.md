@@ -144,6 +144,22 @@ In this third variant, we place the dollar sign before the name of the variable 
 
 ## Data Types & Collections
 
+### Basic Data Types
+
+#### Array
+
+#### Immutable Array
+
+#### Map
+
+#### Immutable Map
+
+### Collections
+
+#### List
+
+#### Immutable List
+
 ## Control flow
 
 ### If Statements
@@ -192,7 +208,9 @@ In this example, we return a value from the encasing function instead of the the
 
 ### Loops
 
-This is a `foreach` loop. It iterates over every single item in an [`Iterable`](#iterable) object. The code within the braces will called once for every object within the iterable object.
+#### This is a `foreach` loop
+
+It iterates over every single item in an [`Iterable`](#iterable) object. The code within the braces will called once for every object within the iterable object.
 
 In this example, we loop over a collection called `users`. We declare that the object that is currently being accessed in the loop as `user`.
 
@@ -218,7 +236,7 @@ foreach ({ key, value } in myMap) {
 }
 ```
 
-If you want to loop over a range of numbers, you can create a new [`Range` object]() and place your lower and upper bounds. If you don't put a lower bound, it will be 0 by default.
+If you want to loop over a range of numbers, you can create a new [`Range` object](#range) and place your lower and upper bounds. If you don't put a lower bound, it will be 0 by default.
 
 ```kotlin
 foreach (number in new Range(1, 5)) {
@@ -226,23 +244,35 @@ foreach (number in new Range(1, 5)) {
 }
 ```
 
-while
-
 ```kotlin
-while (count < foo.length) {
-    // Do something
+foreach (number in new Range(users.size)) {
+    // Do something...
 }
 ```
 
-do while
+#### This is a `while` loop
+
+It continues to run the code within it's scope while the condition is met (the input at the top is `True`)
+
+```kotlin
+while (count < foo.length) {
+    // Do something...
+}
+```
+
+#### This is a `do while` loop
+
+It runs the code within it's scope, and them checks if the condition is still met (the input at the top is `True`)
 
 ```kotlin
 do {
-    // Do something
+    // Do something...
 } while (count < foo.length)
 ```
 
-while do
+#### This is a `while do` loop
+
+It runs the code within the while statement, and depending on what it returns, it runs the do statement. If the that runs within.
 
 ```kotlin
 while {
@@ -254,6 +284,8 @@ while {
 ```
 
 ### Root Return
+
+sometimes you exist inside a lambda function
 
 ## Functions
 
@@ -401,6 +433,66 @@ struct Something {
 }
 ```
 
+### Member Modifiers
+
+#### `static`
+
+The static modifier modifies the member to be "static" or unchanged by different instances of the class. In a sense, it creates global variables and functions that are tied to a certain class. This is a very powerful, but also dangerous property. It can take up unneeded amounts of memory and create unmanageable code. In general, in programming we want to keep "state", or the idea that we save information and that information influences the codes actions, to a minimum.
+
+#### Access Modifiers
+
+Behind the scenes, "get" and "set" functions are created and called for every single one of the fields.
+
+```kotlin
+// For methods...
+
+public var fpo;         // Public is the default access modifier. Allows anyone to access the member.
+internal var bar;       // Internal only allows code from the same package to access the member
+protected var alice;    // Protected only allows code from the class and classes that inherit to access the member
+private var bob;        // Private only allows code from the class to access the member
+
+// For fields...
+
+getOnly var charlie; // Sets the "get" to public, and the "set" to protected
+setOnly var dotan; // Sets the "set" to public, and the "get" to protected
+
+// You can set all of this manually for fields get/set methods as well
+var temp: Integer {
+    internal get() {
+        return temp;
+    }
+    private set(temp: Integer) {
+        this.temp = temp;
+    }
+}
+```
+
+#### `val` & `var`
+
+### Sugar Syntaxes
+
+#### Fields
+
+Behind the scenes, "get" and "set" functions are created and called for every single one of the fields, depending on their access modifier. This allows us to limit access for them even further.
+
+```kotlin
+var port: Integer(this > 0 & this < 3000);
+
+// Translates too...
+
+var port: Integer {
+    get() {
+        return port;
+    }
+    set(port: Integer) {
+        if(port > 0 & port < 3000) {
+            return true;
+        }
+        return false;
+    }
+}
+```
+
 ### Data Classes & Structs
 
 Data classes and structs are special classes and structs that are made to pass around information, and nothing else. They do not support the addition of private members, as those accessed from outside of that class.
@@ -427,6 +519,8 @@ interface Mammal extends Animal {
 
 #### Iterable
 
+`Iterable` is an interface that exists by default.
+
 #### Collection
 
 ## Null Safety
@@ -441,6 +535,8 @@ In sky, packages are declared using the `package` keyword. At the top of the
 
 ## Program Entry Point
 
+There are two program entry points. Either a main function, or a script. In a script, you specify the file you want to run, and any code written in the top level scope will be run. In larger programs, you'll use a main function and the compiler will automatically find it and run it to start the program. If there are multiple main functions, you'll have to specify which one will be run.
+
 ## Style Guide
 
 ## Technical Information
@@ -449,50 +545,39 @@ Sky code files use the .sky file ending.
 
 ## Standard Packages
 
-The standard packages are pre-made packages that anyone can use and import to make their coding faster and more efficient. The standard library is imported by default and contains all of the basic objects.
+The standard packages are pre-made packages that anyone can use and import to make their coding faster and more efficient.
+
+You can think of the all of the basic types as types that exist in the standard library that is imported by default. These types do not have a real class or struct implementation anywhere.
 
 ### Standard Collections & Iterables
 
-`Range` is an iterable that represents a range of numbers.
-
-Constructors:
-
-```kotlin
-constructor(endExclusive: Integer)
-```
-
-endExclusive is an integer number that represents the end of the range, exclusive. The range starts at 0 and ends at the end.
-
-```kotlin
-constructor(startInclusive: Integer, endExclusive: Integer)
-```
-
-endExclusive is an integer number that represents the end of the range, exclusive. The range starts at 0 and ends at the end.
-
-```kotlin
-constructor(endExclusive: Integer)
-```
-
-endExclusive is an integer number that represents the end of the range, exclusive. The range starts at 0 and ends at the end.
-
-## Ideas
-
-Sugar syntax for adding limitations for auto generated getters and setters.
-
-```kotlin
-var port: Integer(this > 0 & this < 3000);
-
-// Translates too...
-
-var port: Integer {
-    get() {
-        return port;
-    }
-    set(port: Integer) {
-        if(port > 0 & port < 3000) {
-            return true;
-        }
-        return false;
-    }
-}
-```
+> #### `Range`
+>
+> an iterable that represents a range of numbers.
+>
+> Constructors:
+>
+> ```kotlin
+> constructor(endExclusive: Integer)
+> ```
+>
+> `endExclusive` is an integer number that represents the end of the range. The range starts at 0 and ends at the end. The range goes up by 1 every time
+>
+> ```kotlin
+> constructor(
+>    startInclusive: Integer,
+>    endExclusive: Integer
+> )
+> ```
+>
+> `startInclusive` is an integer number that represents the start of the range. `endExclusive` is an integer number that represents the end of the range. The range starts at 0 and ends at the end.
+>
+> ```kotlin
+> constructor(
+>    startInclusive: Integer,
+>    endExclusive: Integer,
+>    step: Integer
+> )
+> ```
+>
+> `startInclusive` is an integer number that represents the start of the range. `endExclusive` is an integer number that represents the end of the range. `step` is an integer number that represents how much to jump each time until reaching the end number. The range starts at `startInclusive` and ends before `endExclusive`.

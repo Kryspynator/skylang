@@ -581,3 +581,26 @@ You can think of the all of the basic types as types that exist in the standard 
 > ```
 >
 > `startInclusive` is an integer number that represents the start of the range. `endExclusive` is an integer number that represents the end of the range. `step` is an integer number that represents how much to jump each time until reaching the end number. The range starts at `startInclusive` and ends before `endExclusive`.
+
+# Ideas
+
+easy readable flow because everything is an action. an action is a function that accepts nothing. actions can be used in control flow.
+
+here is the syntax for making an action
+
+```kotlin
+() => ... // Single line function
+() => {...} // Multi Line Function
+{...} // You can leave out the arguments because there are none
+() // For a single line, just wrap the statement in parentheses
+```
+
+```kotlin
+val userLoggedIn = () => ...
+val openHomeScreen = () => ...
+val promptUserLogin = () => ...
+
+if userLoggedIn then openHomeScreen else promptUserLogin
+```
+
+`if` statements accept an action that returns a boolean value, and the `then` and `else` statements run the code depending on the output of the `if` action and return the according value.

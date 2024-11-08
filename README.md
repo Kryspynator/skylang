@@ -126,6 +126,8 @@ We have three ways to interpolate strings in sky.
 $"Hello! {user}"
 ```
 
+> // TODO: Think about if adding 3 different ways to interpolate strings is a good idea., because it can cause confusion and unnecessary work trying to take care of the of escaping characters.
+
 In this first technique, we place a dollar sign (`$`) before the string to imply it is a string we want to interpolate. Any text within curly braces (`{}`) will be interpreted as code. This technique of string interpolation is helpful when you have a large amount of code or variables you want to inject into the string and don't want to waste space with lots of dollar signs.
 
 ```kotlin
@@ -292,11 +294,11 @@ sometimes you exist inside a lambda function
 You declare functions in sky using the `func` keyword.
 
 ```kotlin
-func printWithExclamation(text: String) {
+val printWithExclamation = (text: String) => {
     print("${text}!");
 }
 
-func main() {
+val main = () => {
     printWithExclamation("Hello, world");
 }
 ```
@@ -306,15 +308,15 @@ In this example we use string interpolation.See more about this at the section o
 Use the `return` keyword to exit or return something from a function.
 
 ```kotlin
-func sum(x: Int, y: Int): Int {
+val sum = (x: Int, y: Int): Int => {
     return x + y;
 }
 
-func divide(x: Int, y:Int) {
+val divide = (x: Int, y:Int) => {
     return x / y;
 }
 
-func main() {
+val main = () => {
     print(sum(1, 2));
 }
 ```
@@ -328,7 +330,7 @@ func main() {
 Every function accepts and returns an anonymous object `{a: Type, b:Type ...}`, meaning that you can have multiple inputs and outputs. This won't cause any confusion, though, because the object you receive from the outputs will have to either fit those standards or the program won't compile. same thing if you have two different return statements in a function where the types don't match up. this eliminates the need for "out" like in C#.
 
 ```kotlin
-func something(a: Type, b: Type) {
+val something = (a: Type, b: Type) => {
     return {a, b}
 }
 ```
@@ -355,7 +357,7 @@ Anonymous Objects and Object deconstruction are further discussed in the next pa
 #### Partial Functions
 
 ```kotlin
-func something(x: Int, y: Int) {
+val something = (x: Int, y: Int) => {
     ...
 }
 
@@ -505,8 +507,8 @@ Interfaces can be seen as templates for classes, in the same way as classes are 
 
 ```kotlin
 interface Animal {
-    readonly val genome: Gene[];
-    readonly var Name: String;
+    const genome: Gene[];
+    var Name: String;
     var isAlive: Boolean;
 }
 ```
@@ -528,6 +530,13 @@ interface Mammal extends Animal {
 ## Async
 
 In many programming circles, it is considered best practice to go 'async all the way', meaning if you write any async code, you should write the rest of your code in a way that will accommodate for that asynchronous code when needed.
+
+```kotlin
+const firstTask = async SomethingThatTakesTime();
+const secondTask = async SomethingElseThatTakesTime();
+
+await task.all(firstTask, secondTask);
+```
 
 ## Packages
 

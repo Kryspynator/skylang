@@ -603,6 +603,7 @@ here is the syntax for making an action
 {...} // You can leave out the arguments because there are none
 () // For a single line, just wrap the statement in parentheses
 ```
+Single-line functions implicitly return the output of that line
 
 ```kotlin
 val userLoggedIn = () => ...
@@ -611,5 +612,11 @@ val promptUserLogin = () => ...
 
 if userLoggedIn then openHomeScreen else promptUserLogin
 ```
+
+```kotlin
+x = ... // User Input
+
+// The if segement is a parameterless, single-line, predicate function, that returns the value of "x > 3"
+if (x > 3) then ... else ...
 
 `if` statements accept an action that returns a boolean value, and the `then` and `else` statements run the code depending on the output of the `if` action and return the according value.
